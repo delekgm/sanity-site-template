@@ -4,8 +4,9 @@ import {SpeedInsights} from '@vercel/speed-insights/next'
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import {draftMode} from 'next/headers'
-import {VisualEditing, toPlainText} from 'next-sanity'
-import {Toaster} from 'sonner'
+// import {VisualEditing, toPlainText} from
+import { VisualEditing } from 'next-sanity/visual-editing'
+import { toPlainText } from 'next-sanity'
 
 import DraftModeToast from '@/app/components/DraftModeToast'
 import Footer from '@/app/components/Footer'
@@ -15,6 +16,8 @@ import {sanityFetch, SanityLive} from '@/sanity/lib/live'
 import {settingsQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
 import {handleError} from './client-utils'
+
+import {ToasterClient} from '@/app/components/ToasterClient'
 
 /**
  * Generate metadata for the page.
@@ -65,7 +68,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
       <body>
         <section className="min-h-screen pt-24">
           {/* The <Toaster> component is responsible for rendering toast notifications used in /app/client-utils.ts and /app/components/DraftModeToast.tsx */}
-          <Toaster />
+          <ToasterClient />
           {isDraftMode && (
             <>
               <DraftModeToast />

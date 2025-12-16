@@ -9,6 +9,8 @@
  */
 
 import {PortableText, type PortableTextComponents, type PortableTextBlock} from 'next-sanity'
+import Image from "next/image";
+import { urlForImage } from "@/sanity/lib/utils";
 
 import ResolvedLink from '@/app/components/ResolvedLink'
 
@@ -77,6 +79,23 @@ export default function CustomPortableText({
     marks: {
       link: ({children, value: link}) => {
         return <ResolvedLink link={link}>{children}</ResolvedLink>
+      },
+    },
+    types: {
+      image: ({value}) => {
+        const url =
+          urlForImage(value)?.width(600).height(400).quality(80).auto('format').url()
+        if (!url) return null
+
+        return (
+          <Image
+            className="rounded-lg not-prose w-full h-auto"
+            src={url}
+            alt={value?.alt || ''}
+            width={600}
+            height={400}
+          />
+        )
       },
     },
   }
