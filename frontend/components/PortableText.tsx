@@ -12,7 +12,7 @@ import {PortableText, type PortableTextComponents, type PortableTextBlock} from 
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/utils";
 
-import ResolvedLink from '@/app/components/ResolvedLink'
+import ResolvedLink from '@/components/ResolvedLink'
 
 export default function CustomPortableText({
   className,

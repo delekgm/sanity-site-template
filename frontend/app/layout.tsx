@@ -8,16 +8,16 @@ import {draftMode} from 'next/headers'
 import { VisualEditing } from 'next-sanity/visual-editing'
 import { toPlainText } from 'next-sanity'
 
-import DraftModeToast from '@/app/components/DraftModeToast'
-import Footer from '@/app/components/Footer'
-import Header from '@/app/components/Header'
+import DraftModeToast from '@/components/DraftModeToast'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import * as demo from '@/sanity/lib/demo'
 import {sanityFetch, SanityLive} from '@/sanity/lib/live'
 import {settingsQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage} from '@/sanity/lib/utils'
 import {handleError} from './client-utils'
 
-import {ToasterClient} from '@/app/components/ToasterClient'
+import {ToasterClient} from '@/components/ToasterClient'
 
 /**
  * Generate metadata for the page.
